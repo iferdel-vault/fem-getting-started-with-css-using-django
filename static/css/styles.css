@@ -1,0 +1,146 @@
+:root {
+    --vibrant-red: #ff2E1D;
+    --blue-carbon: #052E45;
+    --green: #00AC6B;
+
+    --white: #ffffff;
+    --black: #262626;
+    --light-grey: #939393;
+    --light-blue: #F3F5FD;
+    --border: #E1E0E1;
+    --dark-blue: #081C34;
+    --red-alstom: #D1002D;
+    --hover-blue: --vibrant-red;
+
+    --corp-blue: --blue-carbon;
+    --corp-green: --green;
+    --corp-gold: #9B875F;
+    --corp-light-blue: --light-blue;
+
+    --facebook: #004188;
+    --twitter: #059FF5;
+    --youtube: #FF0002;
+    --instagram: #262626;
+    --linkedin: #2B75C5;
+
+    --font-size: 1.3rem;
+    --alstom-regular: 'alstom_regular';
+    --alstom-light: 'alstom_light';
+}
+
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* generic styles for the page */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--alstom-regular);
+    background-color: var(--blue-carbon);
+    color: var(--white);
+    font-size: var(--font-size); 
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+a {
+    color: var(--red-alstom)
+}
+
+a:hover {
+    color: var(--vibrant-red);
+    text-decoration: none; /* Remove underline */
+}
+
+
+/* intro section */
+
+#intro {
+    padding-bottom: 10rem;   
+}
+
+#intro p {
+    font-size: 1rem;
+}
+
+#intro .name {
+    font-family: var(--alstom-light)
+}
+
+#intro .name span {
+    font-family: var(--alstom-regular);
+    font-size: 4rem;
+    color: var(--light-blue);
+    display: block; /* Make the span a block element , taking a new line */
+}
+
+#intro h2 {
+    font-size: 4rem;
+    font-weight: normal; /* regulates font weight from bold to thin */
+}
+
+/* contact section */
+
+#contact {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+#contact p:last-child {
+    margin-top: 3rem;
+}
+
+/* navegation bar */
+
+nav {
+    font-family: var(--alstom-light);
+    font-size: 80%;
+    padding: 1rem;
+}
+
+nav h1 a {
+    font-family: var(--alstom-regular);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center; /* property dedicated to flextbox */
+    align-items: center; /* property dedicated to flextbox */
+    gap: 2rem; /* separator between elements within flex display */
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+    border: 1px solid white /* debugging technique */
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    display: block; /* allows the whole block to be clickeable instead of only the text in the anchor tag */
+}
+
+nav a:hover {
+    color: var(--vibrant-red);
+}
+
+nav a:hover svg path { /* it targets the path from the svg WHEN hovering over the anchor tag */
+    fill: var(--vibrant-red);
+}
