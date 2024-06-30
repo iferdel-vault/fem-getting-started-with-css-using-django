@@ -28,7 +28,7 @@
     --alstom-light: 'alstom_light';
 }
 
-
+/* border box model: https://css-tricks.com/box-sizing/ */
 html {
     box-sizing: border-box;
 }
@@ -46,10 +46,12 @@ body {
     font-family: var(--alstom-regular);
     background-color: var(--blue-carbon);
     color: var(--white);
-    font-size: var(--font-size); 
+    font-size: var(--font-size);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin: 0;
 }
 
@@ -59,14 +61,29 @@ a {
 
 a:hover {
     color: var(--vibrant-red);
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
+    /* Remove underline */
 }
 
+img {
+    width: 100%;
+}
+
+/* background color divs */
+.section-dark-blue {
+    background-color: var(--dark-blue);
+}
+
+.gradient {
+    /* generated in https://cssgradient.io/ */
+    background: rgb(5, 46, 69);
+    background: linear-gradient(90deg, rgba(5, 46, 69, 1) 0%, rgba(243, 245, 253, 1) 100%);
+    height: 2px;
+}
 
 /* intro section */
-
 #intro {
-    padding: 4rem 1rem 10rem 1rem;   
+    padding: 4rem 1rem 10rem 1rem;
     max-width: 1200px;
     margin: auto;
 }
@@ -83,12 +100,14 @@ a:hover {
     font-family: var(--alstom-regular);
     font-size: 4rem;
     color: var(--light-blue);
-    display: block; /* Make the span a block element , taking a new line */
+    display: block;
+    /* Make the span a block element , taking a new line */
 }
 
 #intro h2 {
     font-size: 4rem;
-    font-weight: normal; /* regulates font weight from bold to thin */
+    font-weight: normal;
+    /* regulates font weight from bold to thin */
 }
 
 /* contact section */
@@ -107,16 +126,7 @@ a:hover {
     margin-top: 3rem;
 }
 
-/* background color divs */
-.section-dark-blue {
-    background-color: var(--dark-blue);
-}
 
-.gradient { /* generated in https://cssgradient.io/ */
-    background: rgb(5,46,69);
-    background: linear-gradient(90deg, rgba(5,46,69,1) 0%, rgba(243,245,253,1) 100%);
-    height: 2px;
-}
 
 /* navegation bar */
 
@@ -136,28 +146,34 @@ nav ul {
     padding: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center; /* property dedicated to flextbox */
-    align-items: center; /* property dedicated to flextbox */
-    gap: 2rem; /* separator between elements within flex display */
+    justify-content: center;
+    /* property dedicated to flextbox */
+    align-items: center;
+    /* property dedicated to flextbox */
+    gap: 2rem;
+    /* separator between elements within flex display */
 }
 
 nav li:first-child {
     flex-basis: 100%;
     text-align: center;
-    border: 1px solid white /* debugging technique */
+    border: 1px solid white
+        /* debugging technique */
 }
 
 nav a {
     color: var(--white);
     text-decoration: none;
-    display: block; /* allows the whole block to be clickeable instead of only the text in the anchor tag */
+    display: block;
+    /* allows the whole block to be clickeable instead of only the text in the anchor tag */
 }
 
 nav a:hover {
     color: var(--vibrant-red);
 }
 
-nav a:hover svg path { /* it targets the path from the svg WHEN hovering over the anchor tag */
+nav a:hover svg path {
+    /* it targets the path from the svg WHEN hovering over the anchor tag */
     fill: var(--vibrant-red);
 }
 
@@ -174,19 +190,72 @@ nav a:hover svg path { /* it targets the path from the svg WHEN hovering over th
     background-color: var(--vibrant-red);
 }
 
-@media (min-width: 850px) {
-    nav {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
 
-    nav li:first-child {
-        flex-basis: auto;
-        text-align: left;
-        margin-right: auto;
-    }
-
+/* projects section */
+#projects {
+    padding: 4rem 1rem;
 }
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: calc(2.5rem * 1.5);
+}
+
+#projects h3 {
+    color: var(--light-blue);
+}
+
+#projects h4 {
+    font-size: 1rem;
+    font-family: var(--alstom-regular);
+    margin: 0;
+}
+
+.blackbox {
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--black);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#projects ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+#projects img {
+    margin: 2rem 0 4rem 0;
+    padding: 1rem;
+    border-left: 1px solid var(--red-alstom);
+    border-top: 1px solid var(--red-alstom);
+    border-radius: 25px;
+}
+
+#projects .reverse .text {
+    grid-column: 1/7;
+    text-align: left;
+    order: 2;
+}
+
+#projects .reverse img {
+    grid-column: 6/11;
+    grid-row: 1/2;
+}
+
+#projects .reverse ul {
+    justify-content: flex-start;
+}
+
+
+
 
 /* footer */
 
@@ -201,7 +270,68 @@ footer ul {
     margin: 3rem 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center; /* property dedicated to flextbox */
-    gap: 3rem; /* separator between elements within flex display */
+    justify-content: center;
+    /* property dedicated to flextbox */
+    gap: 3rem;
+    /* separator between elements within flex display */
     font-size: 3rem;
+}
+
+@media (min-width: 550px) {
+
+    /* if screen is 550px or wider, this is the styles that are going to be used 
+                            So it is like the one lower thatn 550 is for mobile, and higher is though as for dekstop */
+    article {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        /* This is a hardcoded way. Two columns. the screen is two fractions wide, the two items gets 1 fraction each */
+        /* for this to work in images we need to set them as width: 100%, 
+        that way it will take only the fraction it should based on grid and not more maybe based on the image originial size. */
+        grid-template-columns: repeat(10, 1fr);
+        /* we can play around with this in order to overlapping giving proportions */
+    }
+
+    #projects {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #projects img {
+        grid-column: 1/5;
+        /* starts at 1 */
+        grid-row: 1/2;
+    }
+
+    .text {
+        grid-column: 4/11;
+        /* overlaping */
+        grid-row: 1/2;
+        /* from 1 to two */
+        order: 2;
+        /* orders the text to be the second item in the grid */
+        order: 2;
+        /* orders the text to be the second item in the grid */
+        /* without this property the text will be first even if making the img with order 1 since the order of html would be primordial */
+        text-align: right;
+    }
+
+    #projects ul {
+        justify-content: flex-end;
+    }
+}
+
+
+
+@media (min-width: 850px) {
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav li:first-child {
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+
 }
