@@ -66,7 +66,9 @@ a:hover {
 /* intro section */
 
 #intro {
-    padding-bottom: 10rem;   
+    padding: 4rem 1rem 10rem 1rem;   
+    max-width: 1200px;
+    margin: auto;
 }
 
 #intro p {
@@ -96,10 +98,24 @@ a:hover {
     text-align: center;
     margin: 0 auto;
     padding: 3rem 0;
+    border-top: 1px solid var(--corp-gold);
+    border-left: 1px solid var(--corp-gold);
+    border-radius: 10px;
 }
 
 #contact p:last-child {
     margin-top: 3rem;
+}
+
+/* background color divs */
+.section-dark-blue {
+    background-color: var(--dark-blue);
+}
+
+.gradient { /* generated in https://cssgradient.io/ */
+    background: rgb(5,46,69);
+    background: linear-gradient(90deg, rgba(5,46,69,1) 0%, rgba(243,245,253,1) 100%);
+    height: 2px;
 }
 
 /* navegation bar */
@@ -115,11 +131,11 @@ nav h1 a {
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-flow: wrap;
+    flex-flow: row wrap;
     justify-content: center; /* property dedicated to flextbox */
     align-items: center; /* property dedicated to flextbox */
     gap: 2rem; /* separator between elements within flex display */
@@ -143,4 +159,49 @@ nav a:hover {
 
 nav a:hover svg path { /* it targets the path from the svg WHEN hovering over the anchor tag */
     fill: var(--vibrant-red);
+}
+
+.button {
+    background-color: var(--red-alstom);
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-family: var(--alstom-light);
+    text-decoration: none;
+}
+
+.button:hover {
+    color: var(--white);
+    background-color: var(--vibrant-red);
+}
+
+@media (min-width: 850px) {
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav li:first-child {
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+
+}
+
+/* footer */
+
+footer {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 3rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; /* property dedicated to flextbox */
+    gap: 3rem; /* separator between elements within flex display */
+    font-size: 3rem;
 }
